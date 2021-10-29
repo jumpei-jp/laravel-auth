@@ -40,3 +40,8 @@ laravel-auth/html/auth_test/.env
 
     mysql
     docker exec -it mysql_auth mysql -u root -p
+
+## その他コマンド
+
+    routeの確認 auth_test/route.txtに出力
+    php artisan route:list > route.txt
