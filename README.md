@@ -6,11 +6,12 @@ Laravel8の権限の設定
 * mysql: 8.0.26
 * PHP: 8.0-apache-buster
 
-## 手順
+## 初期環境構築手順
 ### ファイルの修正作業
-1. docker/php/Dockerfile のプロジェクト名を修正
-2. docker-compose.yamlのcontainer_nameを指定
-3. .envファイルの修正
+1. 以下.envファイルの修正
+
+> laravel-auth/.env  
+laravel-auth/html/auth_test/.env
 
 ### コマンド操作
 
@@ -20,11 +21,17 @@ Laravel8の権限の設定
     #コンテナにログイン
     docker exec -it php_auth bash
 
-    #Laravelのインストール（初期操作以外は必要無し）
-    composer create-project laravel/laravel auth_test "8.*"
+    #composerのインストール
+    composer install
 
-    #このままだとアクセスできないので権限を変更
+    #keyの作成
+    php artisan key:generate
+
+    #もし権限が無くてアクセスができない場合には以下コマンド
     chmod 777 -R storage/
+
+以下にログインしてwelcomeページが表示されるとOK
+>http://localhost/
 
 ## 各サービスログインコマンド
 
