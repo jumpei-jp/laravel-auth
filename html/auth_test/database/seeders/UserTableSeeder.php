@@ -17,19 +17,18 @@ class UserTableSeeder extends Seeder
         //userのダミーデータを3つ作成
         DB::table('users')->insert([
             [
-                'name' => 'test',
-                'email' => 'test@test',
-                'password' => bcrypt('test123'),
-            ],
-            [
+                //adminではないユーザー
                 'name' => 'test1',
                 'email' => 'test1@test',
-                'password' => bcrypt('test123'),
+                'password' => bcrypt('test'),
+                'is_admin' => 0,
             ],
             [
+                //adminユーザー
                 'name' => 'test2',
                 'email' => 'test2@test',
-                'password' => bcrypt('test123'),
+                'password' => bcrypt('test'),
+                'is_admin' => 1,
             ],
         ]);
     }
